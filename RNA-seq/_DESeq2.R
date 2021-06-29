@@ -21,3 +21,10 @@ ddsTxi <- DESeqDataSetFromTximport(txi, colData = sampleTable, design = ~ condit
 dds <- ddsTxi[ rowSums(counts(ddsTxi)) > 1, ]
 dds <- DESeq(dds)
 res <- results(dds)
+resLFC <- lfcShrink(dds, type="ashr", res=res)
+
+vsd <- vst(dds, blind=FALSE)
+pca <- plotPCA(vsd, intgroup = c("condition"), ntop=5000, returnData=TRUE)
+library(ggplot2)
+library(ggrepel)
+ggplot(a, aes(x=PC1, y=PC2)) + geom_text_repel(label=rownames(pca), size=3)
