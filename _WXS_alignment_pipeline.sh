@@ -10,7 +10,7 @@ indels=1000G_phase1.indels.b37.vcf
 dbsnp=dbsnp_138.b37.vcf
 threads=
 
-# input file ==> 
+# input file ==> Sample_WXS.txt
 for((i=$2;i<=$3;i++))
 do
         sed -n ${i}p $1 > tmp${i}
