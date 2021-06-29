@@ -1,5 +1,5 @@
 import sys
-dfh = open(sys.argv[1], 'r')
+dfh = open(sys.argv[1], 'r') # *_GeneLevel_geneSymbol.txt
 rfh = open('GM_' + sys.argv[1], 'w') # Geometric Mean
 line = dfh.readline().strip('\n').split('\t')
 rfh.write('\t'.join(line) + '\n')
