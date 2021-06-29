@@ -1,5 +1,5 @@
 import sys
-dfh = open(sys.argv[1], 'r')
+dfh = open(sys.argv[1], 'r') # *_geneSymbol.txt
 rfh = open(sys.argv[1].rstrip('geneSymbol.txt') + 'GeneLevel_geneSymbol.txt', 'w')
 
 rfh.write(dfh.readline())
