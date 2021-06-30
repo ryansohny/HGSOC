@@ -50,8 +50,8 @@ import sys
 #                k-means clustering algorithm is run
 try:
   if sys.argv[2] == 'k':
-	  os.system("/clinix1/Analysis/mongol/phenomata/Tools/cluster-1.59/src/cluster -k " + sys.argv[3] + " -cg a -e 7 -r 100 -u " + sys.argv[1][:-4] + '.e7.' + " -f " + sys.argv[1])
+	  os.system("cluster-1.59/src/cluster -k " + sys.argv[3] + " -cg a -e 7 -r 100 -u " + sys.argv[1][:-4] + '.e7.' + " -f " + sys.argv[1])
   elif sys.argv[2] == 'h':
-	  os.system("/clinix1/Analysis/mongol/phenomata/Tools/cluster-1.59/src/cluster -cg a -g 7 -e 7 -m m -u " + sys.argv[1][:-4] + '_euclidean'+ " -f " + sys.argv[1])
+	  os.system("cluster-1.59/src/cluster -cg a -g 7 -e 7 -m m -u " + sys.argv[1][:-4] + '_euclidean'+ " -f " + sys.argv[1])
 except IndexError:
     print("You must specify an Input file to be clustered and which clustering method you would use\n")
