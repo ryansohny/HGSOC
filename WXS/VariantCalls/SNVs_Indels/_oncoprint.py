@@ -4,7 +4,7 @@ import sys, operator
 import gzip as gz
 from subprocess import call
 from collections import OrderedDict
-dfh = gz.open(sys.argv[1], 'rb') # MAF file of all tumors are merged into one file and used as an input
+dfh = gz.open(sys.argv[1], 'rb') # MAF file of all tumors are merged into one gzipped file and used as an input
 rfh1 = open(sys.argv[1][:-7] + '_matrix.txt', 'w') # 0: no mut, 1: yes mut
 rfh2 = open(sys.argv[1][:-7] + '_matrix_detail.txt', 'w') # detailed mutational classfication, TMB (filter criteria needed), mutational spectrum...
 rfh3 = open(sys.argv[1][:-7] + '_TMB.txt', 'w') # Tumor Mutational burden
