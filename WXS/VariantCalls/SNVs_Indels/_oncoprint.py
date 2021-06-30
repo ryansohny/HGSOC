@@ -1,8 +1,10 @@
+#!python2
+
 import sys, operator
 import gzip as gz
 from subprocess import call
 from collections import OrderedDict
-dfh = gz.open(sys.argv[1], 'rb')
+dfh = gz.open(sys.argv[1], 'rb') # MAF file of all tumors are merged into one file and used as an input
 rfh1 = open(sys.argv[1][:-7] + '_matrix.txt', 'w') # 0: no mut, 1: yes mut
 rfh2 = open(sys.argv[1][:-7] + '_matrix_detail.txt', 'w') # detailed mutational classfication, TMB (filter criteria needed), mutational spectrum...
 rfh3 = open(sys.argv[1][:-7] + '_TMB.txt', 'w') # Tumor Mutational burden
@@ -42,7 +44,7 @@ while line != ['']:
 				t_mutc[line[0]] = 1
 		sample = line[15]
 	line = dfh.readline().strip('\n').split('\t')
-#print t_mutc
+
 sorted_t_mutc = sorted(t_mutc.items(), key=operator.itemgetter(1), reverse=True)
 
 dict_stm = OrderedDict(sorted_t_mutc) # dictionary of sorted_t_mutc
@@ -149,8 +151,8 @@ rfh4.write(sample + '\t' + '\t'.join(map(lambda x: str(x), map(lambda x: x / flo
 rfh5.write(sample + '\t' + '\t'.join(map(lambda x: str(x), map(lambda x: x / float(sum(titvdb.itervalues())), titvdb.itervalues()))) + '\n')
 final = zip(*unzipped_mutinfo) # final matrix
 final_d = zip(*unzipped_dmutinfo) # final detailed matrix
-#[('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('0', '0', '1'), ('1', '0', '0'), ('1', '0', '0'), ('0', '0', '1'), ('1', '0', '0'), ('0', '0', '1'), ('1', '0', '0'), ('0', '0', '1'), ('0', '0', '1'), ('0', '0', '1'), ('1', '0', '0'), ('0', '0', '1'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('0', '0', '1'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('0', '0', '1'), ('1', '0', '0'), ('0', '1', '0'), ('0', '0', '1'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('0', '0', '1'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('0', '0', '1'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('0', '0', '1'), ('0', '0', '1'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('0', '0', '1'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('0', '1', '0'), ('0', '0', '1'), ('1', '0', '0'), ('0', '0', '1'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('0', '0', '1'), ('1', '0', '0'), ('0', '1', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('0', '0', '1'), ('0', '0', '1'), ('0', '0', '1'), ('1', '0', '0'), ('1', '0', '0'), ('0', '0', '1'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('0', '0', '1'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('0', '0', '1'), ('1', '0', '0'), ('0', '0', '1'), ('1', '0', '0'), ('1', '0', '0'), ('0', '0', '1'), ('1', '0', '0'), ('0', '0', '1'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('0', '0', '1'), ('1', '0', '0'), ('0', '0', '1'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0'), ('1', '0', '0')]
-# Write Final Output (Mutational Spectrum needed)
+
+# Write Final Output
 rfh1.write('Gene\t' + '\t'.join(sample_seq) + '\n')
 for i in range(len(dict_stm)):
 	rfh1.write(tuple(dict_stm)[i] + '\t' + '\t'.join(list(final[i])) + '\n')
