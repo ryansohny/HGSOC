@@ -11,12 +11,12 @@ do
 mkdir -p ${tumor}_manta
 cd ${tumor}_manta
 
-/ruby/Tools/manta/manta-1.5.0/bin/configManta.py \
---normalBam /clinix1/Analysis/mongol/phenomata/09.HGSOC/01.Alignment/${normal}/${normal}.dp.recal.bam \
---tumorBam /clinix1/Analysis/mongol/phenomata/09.HGSOC/01.Alignment/${tumor}/${tumor}.dp.recal.bam \
---referenceFasta /clinix1/Users/uugi0620/project/chul/wgs/v37/human_g1k_v37.fasta \
+~/manta-1.5.0/bin/configManta.py \
+--normalBam ${normal}.dp.recal.bam \
+--tumorBam ${tumor}.dp.recal.bam \
+--referenceFasta human_g1k_v37.fasta \
 --exome \
---callRegions /clinix1/Analysis/mongol/phenomata/09.HGSOC/Database/Exome-Agilent_V6_Padded_wo-chr_woY_strelka_manta.bed.gz
+--callRegions Exome-Agilent_V6_Padded_wo-chr_woY_strelka_manta.bed.gz
 
 cd MantaWorkflow
 ./runWorkflow.py -m local -j 35
