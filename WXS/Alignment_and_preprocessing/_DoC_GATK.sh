@@ -2,6 +2,7 @@
 
 gatk4=gatk exec # version 4.1.4.1
 
+# input file ==> Sample_WXS.txt
 for((i=$2;i<=$3;i++))
 do
         sed -n ${i}p $1 > tmp${i}
