@@ -21,7 +21,7 @@ do
 mkdir -p ${sample}
 line=`zcat $fq1 | head -1`
 tagID=`echo "$line" | awk -F":" '{print $1,":",$2,":",$3}' | sed 's/@//g' | sed 's/ //g'`
-platform="NextSeq"
+platform="ILLUMINA"
 library=$sample
 rgline="@RG\tPL:$platform\tID:$tagID\tSM:$sample\tLB:$library"
 
