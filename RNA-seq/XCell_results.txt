@@ -1,4 +1,4 @@
-	Immune	Stromal	MSC	Fibroblasts	Epithelialcells	Cluster
+	Immune	Stromal	MSC	Fibroblasts	EpithelialCells	Cluster
 T_BRCA1_1	0.0099	0.0039	0.007	0	0.1635	A
 T_BRCA1_2	0.0349	0.0042	0.0008	0.0047	0.1413	A
 T_BRCA1_3	0.0673	0.0012	0.069	0	0.273	A
