@@ -1,0 +1,10 @@
+cnvkit.py scatter -s T_WT_1.dp.cn{s,r} -c 13 -g BRCA2 -o chr13_T_WT_1.png
+cnvkit.py scatter -s T_WT_2.dp.cn{s,r} -c 13 -g BRCA2 -o chr13_T_WT_2.png
+cnvkit.py scatter -s T_WT_3.dp.cn{s,r} -c 13 -g BRCA2 -o chr13_T_WT_3.png
+cnvkit.py scatter -s T_WT_4.dp.cn{s,r} -c 13 -g BRCA2 -o chr13_T_WT_4.png
+cnvkit.py scatter -s T_WT_5.dp.cn{s,r} -c 13 -g BRCA2 -o chr13_T_WT_5.png
+cnvkit.py scatter -s T_WT_6.dp.cn{s,r} -c 13 -g BRCA2 -o chr13_T_WT_6.png
+cnvkit.py scatter -s T_WT_7.dp.cn{s,r} -c 13 -g BRCA2 -o chr13_T_WT_7.png
+cnvkit.py scatter -s T_WT_8.dp.cn{s,r} -c 13 -g BRCA2 -o chr13_T_WT_8.png
+cnvkit.py scatter -s T_WT_9.dp.cn{s,r} -c 13 -g BRCA2 -o chr13_T_WT_9.png
+cnvkit.py scatter -s T_WT_10.dp.cn{s,r} -c 13 -g BRCA2 -o chr13_T_WT_10.png
