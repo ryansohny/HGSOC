@@ -1,7 +1,12 @@
 library(ggpubr)
-dat <- read.table("XCell_results.txt")
+library(dplyr)
+library(rstatix)
 
-# Wilcox.test
+dat <- read.table("XCell_results.txt", header=TRUE, row.names=1)
+
+## Mann-Whitney U test of each cell type enrichment result between cluster A and cluster B ##
+dat %>% wilcox_test(Stromal ~ Cluster, exact=TRUE, detailed=TRUE, p.adjust.method="bonferroni")
+
 
 
 # Draw Scatterplot
