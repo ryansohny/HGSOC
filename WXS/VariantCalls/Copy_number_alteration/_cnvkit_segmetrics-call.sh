@@ -1,6 +1,6 @@
-export PATH=/ruby/Users/uugi0620/phenomata/Anaconda3/bin:$PATH
 source activate cnvkit
 
+# Input file ==> 
 for((i=$2;i<=$3;i++))
 do
         sed -n ${i}p $1 > tmp${i}
