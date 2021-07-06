@@ -1,5 +1,5 @@
 library(ggpubr)
-dat <- read.table("ImmuneScore_StromalScore_XCell.txt")
+dat <- read.table("XCell_results.txt")
 
 # Wilcox.test
 
