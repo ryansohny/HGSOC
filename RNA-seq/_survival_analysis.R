@@ -3,7 +3,7 @@ library(survminer)
 library(dplyr)
 
 # SNUH data
-snuhov <- read.csv("I:/SNU2_Backup_20190905/12.Ovarian_Cancer/RNA-seq/Kallisto_abundance/Analysis_new/Protein_only/OnlyTumor/SNUH-OV_clinical.csv")
+snuhov <- read.csv("SNUH-OV_clinical.csv")
 fit <- survfit(Surv(time.overall, status) ~ emt, data = snuhov)
 ggsurvplot(fit, conf.int = TRUE, pval = TRUE, palette = c('#000066','#990000'))
 
