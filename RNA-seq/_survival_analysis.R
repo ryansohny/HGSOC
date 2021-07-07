@@ -26,3 +26,7 @@ univ_results <- lapply(univ_models,
                          names(res)<-c("beta", "HR (95% CI for HR)", "wald.test", 
                                        "p.value")
                          return(res)
+
+tcgaov <- read.csv("TCGA_clinical.csv")
+fit <- survfit(Surv(time, status) ~ emt, data = tcgaov)
+ggsurvplot(fit, conf.int = TRUE, pval = TRUE, palette = c('#990000', '#000066'))
