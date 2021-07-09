@@ -2,14 +2,10 @@ library(ggpubr)
 library(dplyr)
 library(rstatix)
 
-dat <- read.table("XCell_results.txt", header=TRUE, row.names=1)
-
-## Mann-Whitney U test of each cell type enrichment result between cluster A and cluster B ##
-dat %>% wilcox_test(Stromal ~ Cluster, exact=TRUE, detailed=TRUE, p.adjust.method="bonferroni")
-
-
+dat <- read.csv("EMT_HRD.csv", header=TRUE, row.names=1)
 
 # Draw Scatterplot
-png("Immune_Stromal_scatterplot.png")
-ggscatter(dat, x="Immune", y="Stromal", add="reg.line", conf.int=TRUE, cor.coef=TRUE, cor.method="spearman", xlab="Immune score", ylab="Stromal score")
+pdf("EMT-index_HRD_scatterplot.pdf")
+ggscatter(dat, x="EMT.index", y="HRD", add="reg.line", conf.int=TRUE, cor.coef=TRUE, cor.method="spearman", xlab="EMT index", ylab="HRD score")
 dev.off()
+
