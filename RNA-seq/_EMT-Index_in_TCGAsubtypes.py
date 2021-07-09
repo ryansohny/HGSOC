@@ -3,6 +3,7 @@ import seaborn as sns
 from statsmodels.stats.anova import anova_lm
 from statsmodels.formula.api import ols
 from statsmodels.stats.multicomp import pairwise_tukeyhsd
+import matplotlib.pyplot as plt
 
 dat = pd.read_csv("TCGA_OV_EMThighlow_TCGAsubtypes.csv", index_col="ID")
 
