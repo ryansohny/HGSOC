@@ -1,3 +1,5 @@
+import pandas as pd
+import seaborn as sns
 from statsmodels.stats.anova import anova_lm
 from statsmodels.formula.api import ols
 from statsmodels.stats.multicomp import pairwise_tukeyhsd
