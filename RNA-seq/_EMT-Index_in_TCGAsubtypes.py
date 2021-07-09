@@ -45,7 +45,23 @@ from statsmodels.sandbox.stats.multicomp import multipletests
 
 contingency_dat = dat.groupby(['gene_expression_subtype', 'EMT_class']).size().unstack()
 
-def chisq_and_posthoc_corrected(df): # https://neuhofmo.github.io/chi-square-and-post-hoc-in-python/
+# https://neuhofmo.github.io/chi-square-and-post-hoc-in-python/
+def get_asterisks_for_pval(p_val):
+    """Receives the p-value and returns asterisks string."""
+    if p_val > 0.05:
+        p_text = "ns"  # above threshold => not significant
+    elif p_val < 1e-4:  
+        p_text = '****'
+    elif p_val < 1e-3:
+        p_text = '***'
+    elif p_val < 1e-2:
+        p_text = '**'
+    else:
+        p_text = '*'
+    
+    return p_text
+
+def chisq_and_posthoc_corrected(df):
     """Receives a dataframe and performs chi2 test and then post hoc.
     Prints the p-values and corrected p-values (after FDR correction)"""
     # start by running chi2 test on the matrix
@@ -65,7 +81,7 @@ def chisq_and_posthoc_corrected(df): # https://neuhofmo.github.io/chi-square-and
     # correction for multiple testing
     reject_list, corrected_p_vals = multipletests(p_vals, method='fdr_bh')[:2]
     for p_val, corr_p_val, reject, comb in zip(p_vals, corrected_p_vals, reject_list, all_combinations):
-        print(f"{comb}: p_value: {p_val:5f}; corrected: {corr_p_val:5f} ({get_asterisks_for_pval(p_val)}) reject: {reject}")
+        print(f"{comb}: p_value: {p_val}; corrected: {corr_p_val} ({get_asterisks_for_pval(p_val)}) reject: {reject}")
 
 
 
