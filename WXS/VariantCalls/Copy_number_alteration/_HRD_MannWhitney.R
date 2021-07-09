@@ -1,0 +1,10 @@
+library(ggplot2)
+library(dplyr)
+library(ggpubr)
+library(rstatix)
+dat <- read.csv("HRD_score.csv", row.names=1)
+
+dat %>% wilcox_test(HRD ~ Cluster, exact=TRUE, detailed=TRUE, p.adjust.method="bonferroni")
+dat %>% wilcox_test(Telomeric.AI ~ Cluster, exact=TRUE, detailed=TRUE, p.adjust.method="bonferroni")
+dat %>% wilcox_test(LST ~ Cluster, exact=TRUE, detailed=TRUE, p.adjust.method="bonferroni")
+dat %>% wilcox_test(HRD.sum ~ Cluster, exact=TRUE, detailed=TRUE, p.adjust.method="bonferroni")
