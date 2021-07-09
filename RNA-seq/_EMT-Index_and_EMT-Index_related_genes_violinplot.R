@@ -6,6 +6,7 @@ df <- data.frame(TYPE=c("WT", "BRCA", "BRCA", "WT", "BRCA", "WT", "WT", "BRCA", 
 ggplot(df, aes(x=TYPE, y=EMT_index, fill=TYPE)) + geom_violin(trim=FALSE) + geom_dotplot(binaxis='y', stackdir='center', dotsize=0.7) + scale_fill_manual(values=c('#000066','#990000'))  + theme_classic()
 
 # EMT-related violin plot (SUN-HGOC)
+dat2 <- read.csv("CDH1_VIM_TGFB1.csv", row.names=1)
 # CDH1
 df <- data.frame(Type=c("E", "E", "E", "E", "E", "E", "E", "EMT", "E", "E", "E", "E", "E", "E", "E", "E", "EMT", "EMT", "EMT", "EMT"), CDH1_expression=c(13.9411427147277,	15.506352381592,	14.3413445720896,	13.2327938639303,	13.5166952124584,	15.2891732811763,	13.8803932448834,	11.3158646161657,	15.2046765463172,	14.3627592375224,	15.5611932236906,	15.2467867498199,	14.1546059702608,	14.7990189346941,	14.0236616704698,	12.5891156695508,	12.768656850484,	12.497597383967,	10.9187855696642,	11.0135315054797))
 ggplot(df, aes(x=Type, y=CDH1_expression, fill=Type)) + geom_violin(trim=FALSE) + geom_dotplot(binaxis='y', stackdir='center', dotsize=0.7) + scale_fill_manual(values=c('#000066','#990000')) + theme_classic()
