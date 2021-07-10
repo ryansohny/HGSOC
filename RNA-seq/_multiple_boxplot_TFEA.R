@@ -36,3 +36,20 @@ t_dat %>% wilcox_test(PRRX1 ~ Cluster, exact=TRUE, detailed=TRUE, p.adjust.metho
 t_dat %>% wilcox_test(PRRX2 ~ Cluster, exact=TRUE, detailed=TRUE, p.adjust.method="bonferroni")
 t_dat %>% wilcox_test(TWIST1 ~ Cluster, exact=TRUE, detailed=TRUE, p.adjust.method="bonferroni")
 
+
+
+dat <- read.table("DCN_PDPN_HGOC_TPM_new_GeneLevel_geneSymbol_onlyTumor_log2.txt", row.names=1, header=TRUE)
+t_dat <- transpose(dat)
+colnames(t_dat) <- rownames(dat)
+rownames(t_dat) <- colnames(dat)
+t_dat[,"DCN"] <- as.numeric(t_dat[,"DCN"])
+t_dat[,"PDPN"] <- as.numeric(t_dat[,"PDPN"])
+pdf("DCN_PDPN_boxplot.pdf",11,7)
+p1 <- ggplot(t_dat, aes(x=Cluster, y=DCN, fill=Cluster)) + geom_violin(trim=TRUE) + geom_dotplot(binaxis='y', stackdir='center', dotsize=0.7) + scale_fill_manual(values=c('#000066','#990000'))  + theme_classic()
+p2 <- ggplot(t_dat, aes(x=Cluster, y=PDPN, fill=Cluster)) + geom_violin(trim=TRUE) + geom_dotplot(binaxis='y', stackdir='center', dotsize=0.7) + scale_fill_manual(values=c('#000066','#990000'))  + theme_classic()
+ggarrange(p1, p2,ncol=2, nrow=1)
+dev.off()
+
+t_dat %>% wilcox_test(DCN ~ Cluster, exact=TRUE, detailed=TRUE, p.adjust.method="bonferroni")
+t_dat %>% wilcox_test(PDPN ~ Cluster, exact=TRUE, detailed=TRUE, p.adjust.method="bonferroni")
+
