@@ -1,6 +1,6 @@
 # Classification of high-grade serous ovarian carcinoma by epithelial-to-mesenchymal transition signature and homologous recombination repair genes
 
-Min-Hwan Sohn 1,2,3,†, Se Ik Kim 4, †, Jong-Yeon Shin 2, Hee Seung Kim 4, Hyun Hoon Chung 4, Jae-Weon Kim 4, Maria Lee 4,5, and Jeong-Sun Seo 1,2,3,6
+Min-Hwan Sohn 1,2,3,†, Se Ik Kim 4, †, Jong-Yeon Shin 2, Hee Seung Kim 4, Hyun Hoon Chung 4, Jae-Weon Kim 4, Maria Lee 4,5,*, and Jeong-Sun Seo 1,2,3,6,\*
 
 1	Precision Medicine Center, Seoul National University Bundang Hospital, Seongnam-si 13605, Korea
 
@@ -14,7 +14,7 @@ Min-Hwan Sohn 1,2,3,†, Se Ik Kim 4, †, Jong-Yeon Shin 2, Hee Seung Kim 4, Hy
 
 6	Gong-wu Genomic Medicine Institute, Seongnam-si, 13605, Korea
 
-**Correspondence: Maria Lee and Jeong-Sun Seo**
+***Correspondence: Maria Lee and Jeong-Sun Seo**
 
 †	These two authors contributed equally as first authors.
 
